@@ -1,2 +1,2 @@
 [localhost]
-127.0.0.1 ansible_python_interpreter=/home/ubuntu/virtualenvs/venv-2.7.5/bin/python
+127.0.0.1
