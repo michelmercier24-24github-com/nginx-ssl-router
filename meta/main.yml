@@ -1,0 +1,21 @@
+galaxy_info:
+  author: Marshall Jones
+  description: Terminates SSL connections using Nginx and redirects them to a backend
+  company: Very Good Security
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  issue_tracker_url: https://github.com/verygood-ops/nginx-ssl-router/issues
+
+  license: license AGPL
+
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: []

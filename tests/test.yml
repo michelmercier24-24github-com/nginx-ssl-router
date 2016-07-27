@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars_files:
+    - ../defaults/main.yml
+  roles:
+    - nginx-ssl-router
