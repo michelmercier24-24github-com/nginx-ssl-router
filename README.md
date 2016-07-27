@@ -1,5 +1,7 @@
 # nginx-ssl-router
 
+[![CircleCI](https://circleci.com/gh/verygood-ops/nginx-ssl-router.svg?style=svg)](https://circleci.com/gh/verygood-ops/nginx-ssl-router)
+
 This role configures nginx as a reverse proxy for terminating custom ssl certificates and forwarding the requests on to an existing cluster of servers that are running generic hostnames.
 
 In order to use this we need to follow a specific data structure for storing data.
@@ -32,4 +34,4 @@ AGPL
 Author Information
 ------------------
 
-Very Good Security
+Very Good Group

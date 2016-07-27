@@ -4,10 +4,13 @@ machine:
     version: 2.7.5
   environment:
     AWS_DEFAULT_REGION: us-west-2
+    PYTHONPATH: /home/ubuntu/virtualenvs/venv-2.7.5/lib/python2.7/site-packages
 dependencies:
   override:
-    - pip install ansible
+    - sudo apt-get update
+    - sudo apt-get install python-setuptools python-distutils-extra python-apt software-properties-common ansible python-boto
     - pip install setuptools --upgrade
+    # - pip install ansible boto python-apt
 test:
   override:
     - ansible-playbook -i tests/inventory -c local tests/test.yml --syntax-check
