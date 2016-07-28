@@ -2,8 +2,6 @@
 machine:
   python:
     version: 2.7.5
-  environment:
-    AWS_DEFAULT_REGION: us-west-2
 dependencies:
   override:
     - sudo apt-get update
