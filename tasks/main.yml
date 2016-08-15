@@ -1,11 +1,11 @@
 ---
 # tasks file for nginx-ssl-router
 
-- name: Gather facts
-  action: ec2_facts
-
 - apt: name=nginx state=present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Gather facts
+  action: ec2_facts
 
 - name: lookup certificates
   s3: bucket="{{ ssl_router_s3_bucket }}" prefix="{{ ssl_router_s3_path }}" mode=list region={{ansible_ec2_placement_region}}
