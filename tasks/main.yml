@@ -29,6 +29,15 @@
   file: path="{{ ssl_router_nginx_config_dir }}{{ item | basename }}.cert" mode=0400
   with_items: "{{ ssl_domains.s3_keys }}"
 
+- name: add catch all
+  template: src=templates/verygoodproxy.conf.j2 dest={{ ssl_router_nginx_config_dir }}verygoodproxy.conf mode=0400
+
+- name: add catch all certificate
+  shell: aws s3 cp s3://{{ ssl_router_s3_bucket }}/ssl.verygoodproxy.cert {{ ssl_router_nginx_config_dir }}verygoodproxy.cert
+
+- name: activate catch all
+  file: src={{ ssl_router_nginx_config_dir }}verygoodproxy.conf dest={{ ssl_router_nginx_enabled_dir }}verygoodproxy.conf state=link
+
 - name: render config
   template: src=templates/nginx.conf.j2 dest={{ ssl_router_nginx_config_dir }}{{ item | basename }}.config mode=0400
   with_items: "{{ ssl_domains.s3_keys }}"
