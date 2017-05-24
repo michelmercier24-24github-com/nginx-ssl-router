@@ -2,6 +2,15 @@
 # This template represents a termination point for a SSL certificate
 
 server {
+    listen              80;
+    server_name         {{ item | basename }};
+    
+    location / {
+        rewrite ^ https://$server_name$request_uri? permanent;
+    }
+}
+
+server {
     listen              443 ssl;
     server_name         {{ item | basename }};
     ssl_certificate     {{ ssl_router_nginx_config_dir }}{{ item | basename }}.cert;
