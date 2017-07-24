@@ -7,3 +7,5 @@ ssl_router_nginx_config_dir: /etc/nginx/sites-available/
 ssl_router_nginx_enabled_dir: /etc/nginx/sites-enabled/
 # ssl_router_nginx_config_dir: /tmp/available/
 # ssl_router_nginx_enabled_dir: /tmp/enabled/
+
+cert_mgr_url: https://certificates.verygoodsecurity.io
