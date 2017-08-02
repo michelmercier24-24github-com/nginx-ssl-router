@@ -51,6 +51,9 @@
   file: src={{ ssl_router_nginx_config_dir }}{{ item | basename }}.config dest={{ ssl_router_nginx_enabled_dir }}{{ item | basename }}.config state=link
   with_items: "{{ ssl_domains.s3_keys }}"
 
+- name: delete default nginx config
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
 - name: reload nginx
   service: name=nginx state=reloaded
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
